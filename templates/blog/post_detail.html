@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<section class="mt-4">
+    <h4><span class="badge bg-secondary">{{  post.category }}</span></h4>
+    <h2>{{ post.title }}</h2>
+    <p class="text-muted"><em>Por: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.author.email }}</em></p>
+    <br>
+    <p>{{ post.body }}</p>
+
+    <hr>
+    <a class="btn btn-lg btn-primary mx-auto" href="{% url 'home' %}">Inicio</a>
+</section>
+
+{% endblock %}
+
+

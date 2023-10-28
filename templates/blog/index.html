@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+<h2 class="mt-4">
+    Posts Publicados
+</h2>
+
+<section>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for post in posts %}
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h6><span class="badge bg-secondary">{{  post.category }}</span></h6>
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">Por: {{ post.author.first_name }} {{ post.author.last_name }}</p>
+                    <p class="card-text">{{ post.body|slice:":80" }}
+                        {% if post.body|length > 80 %}
+                            <strong><a href="{% url 'post_detail' post.slug %}">Seguir leyendo...</a></strong>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

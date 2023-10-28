@@ -1,0 +1,7 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h1 class="mt-4">Página no encontrada</h1>
+    <p class="lead">Lo sentimos, la página que estás buscando no existe</p>
+    <a class="btn btn-lg btn-primary mx-auto" href="{% url 'home' %}">Inicio</a>
+{% endblock %}
